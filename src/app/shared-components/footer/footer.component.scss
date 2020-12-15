@@ -1,0 +1,27 @@
+@import '../../../assets/css/theme-base';
+:host {
+  position: relative;
+}
+footer {
+  bottom:0;
+  padding:0;
+
+  hr {
+    border-color:lighten($theme, 10%);
+  }
+  .logo-container {
+    box-sizing: border-box;
+    padding:30px 20px;
+    width:300px;
+    overflow:hidden;
+    background:$theme;
+    color:$white;
+    img {
+      width:60px;
+    }
+    p:last-child {
+      margin-bottom:0;
+    }
+
+  }
+}

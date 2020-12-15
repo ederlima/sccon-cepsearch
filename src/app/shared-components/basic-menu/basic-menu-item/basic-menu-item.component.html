@@ -1,0 +1,10 @@
+<li *ngIf="menuItem" [ngClass]="{ 'menu-item': true, 'menu-item-sub': isSubMenuItem, 'has-sub': menuItem.children }">
+  <ng-container *ngIf="!menuItem.children" >
+    <a *ngIf="!menuItem.external"  [href]="menuItem.url"><i class="{{menuItem.icon}}"></i>{{menuItem.label}}</a>
+    <a *ngIf="menuItem.external"  [routerLink]="menuItem.url"><i class="{{menuItem.icon}}"></i>{{menuItem.label}}</a>
+  </ng-container>
+  <ng-container *ngIf="menuItem.children">
+    <span (click)="toggleSubMenu()" appClickOutside (clickOutside)="hideMenu()"><i class="{{menuItem.icon}}"></i>{{menuItem.label}} <i class="icon-down"></i> </span>
+    <app-basic-menu [@showHide]="showMenu() ? 'shown' : 'hidden'" #submenu [menu]="menuItem.children" [isSubMenu]="true"></app-basic-menu>
+  </ng-container>
+</li>

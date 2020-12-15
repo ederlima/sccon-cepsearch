@@ -1,0 +1,3 @@
+<ul *ngIf="menu" [ngClass]="{ 'menu-list': true, 'submenu': isSubMenu }">
+  <app-basic-menu-item *ngFor="let menuItem of menu" [menuItem]="menuItem" [isSubMenuItem]="isSubMenu"></app-basic-menu-item>
+</ul>

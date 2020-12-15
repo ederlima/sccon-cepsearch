@@ -1,0 +1,35 @@
+/* ----------------------------- FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* ----------------------------- FONTS */
+
+/* ----------------------------- COLORS */
+
+$theme: #670000;
+$foreground: #D7DBDD;
+$white: #fff;
+$gray: #666;
+$graylight: #999;
+
+/* ----------------------------- COLORS */
+
+/* ----------------------------- MIXINS */
+
+//
+@mixin roboto($size: 16, $weight: 400, $color: $gray) {
+  font-family: 'Roboto', sans-serif;
+  font-size: ($size/16) * 1rem;
+  color:$color;
+  font-weight: $weight;
+}
+
+/* ----------------------------- MIXINS */
+
+/* ----------------------------- BODY */
+
+body {
+  @include roboto(32);
+}
+
+/* ----------------------------- BODY */
