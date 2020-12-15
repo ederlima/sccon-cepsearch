@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class CepSearchFormComponent implements OnInit {
   @Output() doSearch = new EventEmitter();
   constructor() { }
-
+  public val = '';
   public handleSearchClick(): void {
     console.log('emitindo evento');
     this.doSearch.emit(79009250);

@@ -1,3 +1,10 @@
 <div class="cep-search-form">
-  <input type="text" placeholder="Digite o CEP"> <button (click)="handleSearchClick()"><i class="icon-search"></i> Pesquisar</button>
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Digite o CEP</mat-label>
+    <input matInput type="text" [(ngModel)]="val">
+    <button mat-button *ngIf="val" matSuffix mat-icon-button aria-label="Clear" (click)="val=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-button (click)="handleSearchClick()"><i class="icon-search"></i> Buscar</button>
 </div>
