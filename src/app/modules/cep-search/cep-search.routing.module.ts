@@ -1,4 +1,4 @@
-import { CepSearchComponent } from './cep-search/cep-search.component';
+import { CepSearchComponent } from './views/cep-search/cep-search.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
