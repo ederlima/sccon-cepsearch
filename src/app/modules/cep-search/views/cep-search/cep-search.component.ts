@@ -29,8 +29,10 @@ export class CepSearchComponent implements OnInit, OnDestroy {
           this.messageService.showMessage('Endereço encontrado', 'Verifique a lista de endereços.')
         } else {
           this.messageService.showMessage('Não encontrado', 'O CEP é inválido ou não está cadastrado no sistema.');
-
         }
+      },
+      error => {
+        this.messageService.showMessage('Ocorreu um erro', 'O sistema não respondeu, verifique sua conexão e tente novamente.');
       }
     );
     this.subscriptions.push(sub);
