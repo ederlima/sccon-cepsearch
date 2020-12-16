@@ -23,7 +23,15 @@ $graylight: #999;
   color:$color;
   font-weight: $weight;
 }
-
+@mixin alphabg($color, $alpha) {
+  background: rgba(red($color), green($color), blue($color), $alpha);
+}
+@mixin rounded($border: 5px) {
+  border-radius: $border;
+}
+@mixin shadow() {
+  box-shadow: 1px 1px 2px rgba(0,0,0,.15);
+}
 /* ----------------------------- MIXINS */
 
 /* ----------------------------- BODY */

@@ -8,6 +8,7 @@ import { BasicMenuComponent } from './basic-menu/basic-menu.component';
 import { BasicMenuItemComponent } from './basic-menu/basic-menu-item/basic-menu-item.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { AddressTableComponent } from './address-table/address-table.component';
+import { MessageComponentComponent } from './message-component/message-component.component';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -15,7 +16,8 @@ import { AddressTableComponent } from './address-table/address-table.component';
     BasicMenuComponent,
     BasicMenuItemComponent,
     MainNavigationComponent,
-    AddressTableComponent],
+    AddressTableComponent,
+    MessageComponentComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -26,7 +28,8 @@ import { AddressTableComponent } from './address-table/address-table.component';
     FooterComponent,
     BasicMenuComponent,
     MainNavigationComponent,
-    AddressTableComponent
+    AddressTableComponent,
+    MessageComponentComponent
   ]
 })
 export class SharedComponentsModule { }

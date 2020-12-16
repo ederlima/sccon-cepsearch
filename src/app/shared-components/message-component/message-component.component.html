@@ -1,0 +1,16 @@
+<div class="message-component" *ngIf="show" >
+  <div class="overlay">
+    <div class="message">
+      <div class="message-header d-flex align-items-center">
+        <i class="icon-info flex-shrink-0"></i>
+        <h4>{{title}}</h4>
+      </div>
+      <div class="message-info p-3">
+        <p>{{message}}</p>
+      </div>
+      <div class="message-footer d-flex justify-content-center align-items-center">
+        <button (click)="closeMessage()">clique/toque para fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

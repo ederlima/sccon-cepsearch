@@ -10,4 +10,5 @@ export interface Address {
   ddd: number;
   siafi: number;
   data?: string;
+  erro?: boolean;
 }

@@ -1,3 +1,4 @@
+import { MessageServiceService } from './../../../../shared-components/services/message-service.service';
 import { LocalStorageService } from './../../services/local-storage.service';
 import { Address } from '../../../../shared-components/interfaces/address';
 import { AddressTableComponent } from './../../../../shared-components/address-table/address-table.component';
@@ -12,20 +13,24 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, OnDestroy } from '@
 export class CepSearchComponent implements OnInit, OnDestroy {
 
   @ViewChild('resultTable', {static: false}) addressList!: AddressTableComponent;
-  constructor( private cepService: CepSearchService, private localStorage: LocalStorageService ) {
-    cepService.searchResult$.subscribe(
-      result => {
-      }
-    );
+  constructor( private cepService: CepSearchService, private messageService: MessageServiceService ) {
+
   }
   public searchResult!: Address;
   private subscriptions: any[] = [];
   private doSearch(cep: number): void {
+    this.messageService.showMessage('Aguarde', 'Buscando endereços...');
     const sub = this.cepService.doSearch(cep).subscribe(
       result => {
-        this.searchResult = result;
-        this.searchResult.data = new Date().toLocaleDateString();
-        this.addAddressToList(this.searchResult);
+        if  (!result.erro) {
+          this.searchResult = result;
+          this.searchResult.data = new Date().toLocaleDateString();
+          this.addAddressToList(this.searchResult);
+          this.messageService.showMessage('Endereço encontrado', 'Verifique a lista de endereços.')
+        } else {
+          this.messageService.showMessage('Não encontrado', 'O CEP é inválido ou não está cadastrado no sistema.');
+
+        }
       }
     );
     this.subscriptions.push(sub);

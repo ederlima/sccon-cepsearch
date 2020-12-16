@@ -19,10 +19,10 @@ export class CepSearchService {
       tap(
         result => {
           this.searchResultSource.next(result);
-          //localStorage.setItem('Address', JSON.stringify(result));
         }
       ),
-      catchError((error: any) => Observable.throw(this.handleError('Erro ao atualizar foto de usuário.')))
+      catchError((error: any) => Observable.throw(this.handleError('Ocorreu um erro geral. Verifique sua conexão com a internet.')))
+
     );
   }
   private handleError(str: string): void {
