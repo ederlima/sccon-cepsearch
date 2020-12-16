@@ -56,7 +56,7 @@ export class CepSearchComponent implements OnInit, OnDestroy {
   }
   public getHistory(): void {
     this.messageService.showMessage('Buscando Histórico', 'Aguarde enquanto buscamos o seu histórico de pesquisas.');
-    this.searchHistoryService.getHistory().subscribe(
+    const sub = this.searchHistoryService.getHistory().subscribe(
       result => {
         const ordered: any = result;
         this.history = ordered.addresses.reverse();
@@ -67,6 +67,7 @@ export class CepSearchComponent implements OnInit, OnDestroy {
         this.messageService.showMessage('Erro ao buscar histórico', 'Não foi possível buscar o histórico.');
       }
     );
+    this.subscriptions.push(sub);
   }
   ngOnInit(): void {
     this.getHistory();
