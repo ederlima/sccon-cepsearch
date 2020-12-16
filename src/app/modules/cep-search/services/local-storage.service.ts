@@ -5,10 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'any'
 })
 export class LocalStorageService {
-
-  constructor() { }
-
+  private addresses: any;
+  constructor( ) {
+    this.addresses = localStorage.getItem('addresses');
+    console.log(this.addresses);
+  }
   public saveAddress(address: Address): any {
-    return localStorage.setItem('address', JSON.stringify(address));
+    localStorage.setItem('addresses', JSON.stringify(this.addresses));
+  }
+  public getAddress(): any {
+    return localStorage.getItem('addresses');
   }
 }

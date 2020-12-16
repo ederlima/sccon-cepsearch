@@ -1,3 +1,4 @@
+import { LocalStorageService } from './../../services/local-storage.service';
 import { Address } from '../../../../shared-components/interfaces/address';
 import { AddressTableComponent } from './../../../../shared-components/address-table/address-table.component';
 import { CepSearchService } from './../../services/cep-search.service';
@@ -11,13 +12,20 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, OnDestroy } from '@
 export class CepSearchComponent implements OnInit, OnDestroy {
 
   @ViewChild('resultTable') addressList!: AddressTableComponent;
-  constructor( private cepService: CepSearchService ) { }
+  constructor( private cepService: CepSearchService, private localStorage: LocalStorageService ) {
+    cepService.searchResult$.subscribe(
+      result => {
+        console.log(result, 'result');
+      }
+    );
+  }
   private searchResult!: Address;
   private subscriptions: any[] = [];
   private doSearch(cep: number): void {
     const sub = this.cepService.doSearch(cep).subscribe(
       result => {
         this.searchResult = result;
+        this.searchResult.data = new Date().toLocaleDateString();
         this.addAddressToList(this.searchResult);
       }
     );
@@ -33,6 +41,7 @@ export class CepSearchComponent implements OnInit, OnDestroy {
     this.doSearch(cep);
   }
   ngOnInit(): void {
+
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());

@@ -19,13 +19,13 @@ export class CepSearchService {
       tap(
         result => {
           this.searchResultSource.next(result);
-          localStorage.setItem('Address', JSON.stringify(result));
+          //localStorage.setItem('Address', JSON.stringify(result));
         }
       ),
-      catchError((error: any) => Observable.throw(this.handleError('Erro ao atualizar foto de usuário.', error)))
+      catchError((error: any) => Observable.throw(this.handleError('Erro ao atualizar foto de usuário.')))
     );
   }
-  private handleError(str: string) {
+  private handleError(str: string): void {
     console.log(str);
   }
 }
