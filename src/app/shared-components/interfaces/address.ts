@@ -9,4 +9,5 @@ export interface Address {
   gia: number;
   ddd: number;
   siafi: number;
+  data?: string;
 }
