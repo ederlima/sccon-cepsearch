@@ -39,9 +39,10 @@ Para servidor com domínio comum e subpastas, ex: **http://localhost/cepsearch**
 
 ## Pontos a melhorar
 
- -  Persistir os dados das pesquisas anteriores em localstorage/mock
- -  Animações entre rotas
+ - Persistir os dados das pesquisas anteriores em localstorage/mock
+ - Animações entre rotas
  - Animações ao Adicionar/Remover
  - Indicador de Carregamento (spinner, alerta)
+ - Refatoração da tabela de resultados para um componente mais personalizado que responda no responsivo como um card
 
 
