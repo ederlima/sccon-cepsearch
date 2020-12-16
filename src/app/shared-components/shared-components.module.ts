@@ -8,7 +8,6 @@ import { BasicMenuComponent } from './basic-menu/basic-menu.component';
 import { BasicMenuItemComponent } from './basic-menu/basic-menu-item/basic-menu-item.component';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { AddressTableComponent } from './address-table/address-table.component';
-import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,7 +20,6 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     RouterModule,
     DirectivesModule,
-    MatTableModule
   ],
   exports: [
     HeaderComponent,

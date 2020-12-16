@@ -3,6 +3,26 @@
   width:100%;
 }
 header {
+  .toggle-menu {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:32px;
+    height:32px;
+    padding:0;
+    position: absolute;
+    top:0;
+    right:15px;
+    background:$white;
+    border:none;
+    color:$theme;
+    i {
+      font-size:32px;
+      &:before {
+        margin:0;
+      }
+    }
+  }
   hr {
     border:0;
     border-top:1px solid lighten($theme, 5%);

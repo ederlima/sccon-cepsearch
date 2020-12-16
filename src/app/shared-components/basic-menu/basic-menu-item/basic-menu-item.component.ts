@@ -9,11 +9,11 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   animations: [
     trigger('showHide', [
       state('hidden', style({
-        opacity: '0',
+        //opacity: '0',
         visibility: 'hidden'
       })),
       state('shown', style({
-        opacity: '1',
+        //opacity: '1',
         visibility: 'visible',
       })),
       transition('* => *', animate('.15s'))

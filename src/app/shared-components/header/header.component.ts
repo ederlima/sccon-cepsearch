@@ -1,5 +1,6 @@
+import { MainNavigationComponent } from './../main-navigation/main-navigation.component';
 import { BasicLink } from './../interfaces/basic-link';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,31 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  @ViewChild('mainMenu', {static: false}) menu!: MainNavigationComponent;
+  public menuToggleHandler(): void {
+    this.menu.toggleMenu();
+  }
   constructor() { }
-  public menu: BasicLink[] = [
-    {
-      label: 'Home',
-      url: '/home',
-      external: false,
-      icon: 'icon-home'
-    },
-    {
-      label: 'Endereços',
-      url: '',
-      external: false,
-      icon: 'icon-location',
-      children: [
-        {
-          label: 'Buscar Endereços',
-          url: '/buscar',
-          external: false,
-          icon: 'icon-search'
-        }
-      ]
-    },
 
-  ];
   ngOnInit(): void {
   }
 
