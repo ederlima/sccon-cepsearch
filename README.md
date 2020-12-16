@@ -1,27 +1,47 @@
-# Cepsearch
+# SCCON - Consulta CEP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.0.
+Projeto de teste para seleção de front-end developer para a SCCON - Tecnologia Geoespacial
+Por Eder Lima (eder@ederlima.com.br)
+Data: 15/12/2020
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    git clone https://github.com/ederlima/sccon-cepsearch.git
+    npm install
 
-## Code scaffolding
+## Servidor de desenvolvimento
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ng serve
 
-## Build
+## Build & Deploy
+**Realize o Build**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    ng build --prod
 
-## Running unit tests
+**Deploy em servidor local**
+Copie o a pasta 'cepsearch' em 'dist' e coloque na pasta pública do seu servidor local.
+Atenção:
+Para servidor com domínio comum e subpastas, ex: **http://localhost/cepsearch**, é necessário alterar o basehref para o nome do projeto no index.html, ex:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    <base href="/cepsearch/">
 
-## Running end-to-end tests
+## Pontos positivos
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ - O projeto utiliza o Bootstrap 4 para formatação da Grid responsiva e
+   tabela de resultados;
+ - O menu não utiliza dependências, é um    componente criado
+   exclusivamente dentro do projeto;
+ - O Formulário de    busca valida o cep e oferece máscara;
+ - Os módulos são carregados usando LazyLoading e com preloadStrategy para garantir um carregamento rápido para o usuário
+ - Módulos de componentes compartilhados e reaproveitáveis
+ - Folhas de estilos utilizam SASS
+ - Responsivo até largura mínima de 320px
 
-## Further help
+## Pontos a melhorar
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ -  Persistir os dados das pesquisas anteriores em localstorage/mock
+ -  Animações entre rotas
+ - Animações ao Adicionar/Remover
+ - Indicador de Carregamento (spinner, alerta)
+
+
