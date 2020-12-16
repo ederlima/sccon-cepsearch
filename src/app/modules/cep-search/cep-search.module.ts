@@ -1,3 +1,4 @@
+import { SearchHistoryService } from './services/search-history.service';
 import { SharedComponentsModule } from './../../shared-components/shared-components.module';
 import { CepSearchService } from './services/cep-search.service';
 import { CepSearchComponent } from './views/cep-search/cep-search.component';
@@ -26,7 +27,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     SharedComponentsModule,
   ],
   providers: [
-    CepSearchService
+    CepSearchService,
+    SearchHistoryService
   ],
   exports: [
     CepSearchFormComponent,

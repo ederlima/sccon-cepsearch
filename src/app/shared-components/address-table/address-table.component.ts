@@ -13,9 +13,11 @@ export class AddressTableComponent implements OnInit {
   public get addressList(): Address[] {
     return this._addressList;
   }
-
+  public set addressList(addresses: Address[]) {
+    this._addressList = addresses;
+  }
   public addAddress(address: Address): void {
-    this._addressList.push(address);
+    this._addressList.unshift(address);
   }
 
   public removeAddress(address: Address): void {

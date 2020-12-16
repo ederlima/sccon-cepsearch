@@ -1,5 +1,5 @@
+import { SearchHistoryService } from './../../services/search-history.service';
 import { MessageServiceService } from './../../../../shared-components/services/message-service.service';
-import { LocalStorageService } from './../../services/local-storage.service';
 import { Address } from '../../../../shared-components/interfaces/address';
 import { AddressTableComponent } from './../../../../shared-components/address-table/address-table.component';
 import { CepSearchService } from './../../services/cep-search.service';
@@ -13,11 +13,16 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, OnDestroy } from '@
 export class CepSearchComponent implements OnInit, OnDestroy {
 
   @ViewChild('resultTable', {static: false}) addressList!: AddressTableComponent;
-  constructor( private cepService: CepSearchService, private messageService: MessageServiceService ) {
+  constructor(
+    private cepService: CepSearchService,
+    private searchHistoryService: SearchHistoryService,
+    private messageService: MessageServiceService
+    ) {
 
   }
   public searchResult!: Address;
   private subscriptions: any[] = [];
+  public history!: Address[];
   private doSearch(cep: number): void {
     this.messageService.showMessage('Aguarde', 'Buscando endereços...');
     const sub = this.cepService.doSearch(cep).subscribe(
@@ -26,7 +31,11 @@ export class CepSearchComponent implements OnInit, OnDestroy {
           this.searchResult = result;
           this.searchResult.data = new Date().toLocaleDateString();
           this.addAddressToList(this.searchResult);
-          this.messageService.showMessage('Endereço encontrado', 'Verifique a lista de endereços.')
+          this.messageService.showMessage('Endereço encontrado', 'Verifique a lista de endereços.');
+          const interval = setInterval( () => {
+            this.messageService.closeMessage();
+            clearInterval(interval);
+          }, 500);
         } else {
           this.messageService.showMessage('Não encontrado', 'O CEP é inválido ou não está cadastrado no sistema.');
         }
@@ -45,8 +54,22 @@ export class CepSearchComponent implements OnInit, OnDestroy {
   public handleSearch(cep: number): void {
     this.doSearch(cep);
   }
+  public getHistory(): void {
+    this.messageService.showMessage('Buscando Histórico', 'Aguarde enquanto buscamos o seu histórico de pesquisas.');
+    this.searchHistoryService.getHistory().subscribe(
+      result => {
+        const ordered: any = result;
+        this.history = ordered.addresses.reverse();
+        this.addressList.addressList = this.history;
+        this.messageService.closeMessage();
+      },
+      error => {
+        this.messageService.showMessage('Erro ao buscar histórico', 'Não foi possível buscar o histórico.');
+      }
+    );
+  }
   ngOnInit(): void {
-
+    this.getHistory();
   }
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
