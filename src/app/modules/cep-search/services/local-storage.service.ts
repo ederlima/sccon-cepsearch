@@ -8,7 +8,6 @@ export class LocalStorageService {
   private addresses: any;
   constructor( ) {
     this.addresses = localStorage.getItem('addresses');
-    console.log(this.addresses);
   }
   public saveAddress(address: Address): any {
     localStorage.setItem('addresses', JSON.stringify(this.addresses));

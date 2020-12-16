@@ -15,13 +15,11 @@ export class AddressTableComponent implements OnInit {
   }
 
   public addAddress(address: Address): void {
-    console.log('Adicionando...');
     this._addressList.push(address);
   }
 
   public removeAddress(address: Address): void {
     this._addressList.splice(this._addressList.indexOf(address), 1);
-    console.log('removendo...');
   }
   ngOnInit(): void {
 

@@ -11,15 +11,14 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, OnDestroy } from '@
 })
 export class CepSearchComponent implements OnInit, OnDestroy {
 
-  @ViewChild('resultTable') addressList!: AddressTableComponent;
+  @ViewChild('resultTable', {static: false}) addressList!: AddressTableComponent;
   constructor( private cepService: CepSearchService, private localStorage: LocalStorageService ) {
     cepService.searchResult$.subscribe(
       result => {
-        console.log(result, 'result');
       }
     );
   }
-  private searchResult!: Address;
+  public searchResult!: Address;
   private subscriptions: any[] = [];
   private doSearch(cep: number): void {
     const sub = this.cepService.doSearch(cep).subscribe(
@@ -35,7 +34,6 @@ export class CepSearchComponent implements OnInit, OnDestroy {
     this.addressList.addAddress(address);
   }
   public searchResultHandler(address: Address): void {
-    console.log(address);
   }
   public handleSearch(cep: number): void {
     this.doSearch(cep);
