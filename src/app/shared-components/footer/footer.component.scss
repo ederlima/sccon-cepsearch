@@ -7,7 +7,9 @@ footer {
   padding:0;
 
   hr {
-    border-color:lighten($theme, 10%);
+    border:0;
+    border-top:1px solid lighten($theme, 5%);
+    margin:0;
   }
   .logo-container {
     box-sizing: border-box;

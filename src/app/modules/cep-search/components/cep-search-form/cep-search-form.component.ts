@@ -6,11 +6,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./cep-search-form.component.scss']
 })
 export class CepSearchFormComponent implements OnInit {
-  @Output() doSearch = new EventEmitter();
+
+  @Output() searchClick = new EventEmitter();
+
   constructor() { }
   public formGroup = new FormGroup({cep: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{8}$/)])});
   public handleSearchClick(): void {
-    this.doSearch.emit(this.formGroup.value.cep);
+    this.searchClick.emit(this.formGroup.value.cep);
   }
 
   ngOnInit(): void {

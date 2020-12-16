@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>CEP</th>
+        <th>Endereço</th>
+        <th>Data</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let address of addressList">
+        <td>{{address.cep}}</td>
+        <td>{{address.logradouro}}, {{address.bairro}}, {{address.localidade}} - {{address.uf}}</td>
+        <td>{{address.ibge}}</td>
+        <td><button (click)="removeAddress(address)"><i class="icon-trash"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

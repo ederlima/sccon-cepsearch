@@ -1,5 +1,5 @@
 import { environment } from './../../../../environments/environment';
-import { Address } from '../interfaces/address';
+import { Address } from '../../../shared-components/interfaces/address';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
