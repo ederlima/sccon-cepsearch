@@ -2,6 +2,9 @@
   width:100%;
   table {
     width:100%;
+    td {
+      white-space: nowrap;
+    }
     button {
       border:none;
       background:none;

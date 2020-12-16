@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let address of addressList">
         <td>{{address.cep}}</td>
-        <td>{{address.logradouro}}, {{address.bairro}}, {{address.localidade}} - {{address.uf}}</td>
+        <td>{{address.logradouro}}, {{address.bairro}}<br>{{address.localidade}} - {{address.uf}}</td>
         <td>{{address.ibge}}</td>
         <td><button (click)="removeAddress(address)"><i class="icon-trash"></i></button></td>
       </tr>

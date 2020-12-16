@@ -11,7 +11,6 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-
 @NgModule({
   declarations: [CepSearchFormComponent, CepSearchComponent],
   imports: [
@@ -24,7 +23,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     ReactiveFormsModule,
     MatIconModule,
     NgxMaskModule.forRoot(),
-    SharedComponentsModule
+    SharedComponentsModule,
   ],
   providers: [
     CepSearchService
