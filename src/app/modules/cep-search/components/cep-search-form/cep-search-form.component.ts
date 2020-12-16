@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-cep-search-form',
   templateUrl: './cep-search-form.component.html',
@@ -8,11 +8,9 @@ import { FormControl, Validators } from '@angular/forms';
 export class CepSearchFormComponent implements OnInit {
   @Output() doSearch = new EventEmitter();
   constructor() { }
-  public cep = new FormControl('', [Validators.required])
-  public val = '';
+  public formGroup = new FormGroup({cep: new FormControl('', [Validators.required, Validators.pattern(/^[0-9]{8}$/)])});
   public handleSearchClick(): void {
-    console.log('emitindo evento');
-    this.doSearch.emit(79009250);
+    this.doSearch.emit(this.formGroup.value.cep);
   }
 
   ngOnInit(): void {
