@@ -9,7 +9,7 @@ Data: 15/12/2020
     git clone https://github.com/ederlima/sccon-cepsearch.git
     npm install
 
-## Servidor de desenvolvimento
+## Servidor de desenvolvimento (Abrir em http://localhost:4200)
 
     ng serve
 
