@@ -33,7 +33,11 @@ header {
 @media screen and (max-width:576px) {
   header {
     h1 {
+      @include roboto(16);
       line-height: 1.2rem;
+      span {
+        font-size:.9rem;
+      }
     }
   }
 }

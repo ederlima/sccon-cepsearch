@@ -1,4 +1,4 @@
-import { BasicLink } from './../../interfaces/basic-link';
+import { BasicLink } from './../interfaces/basic-link';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

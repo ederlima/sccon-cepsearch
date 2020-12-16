@@ -1,11 +1,11 @@
 <div class="cep-search-form">
-  <form class="d-flex justify-content-start align-items-center" [formGroup]="formGroup" (ngSubmit)="handleSearchClick()">
+  <form class="d-flex flex-column flex-sm-row justify-content-start align-items-center" [formGroup]="formGroup" (ngSubmit)="handleSearchClick()">
     <mat-form-field class="example-form-field flex-shrink-1" appearance="outline">
       <mat-label>Digite o CEP</mat-label>
       <input matInput type="text" formControlName="cep" [mask]="'00.000-000'">
     </mat-form-field>
-    <button class="flex-shrink-0" [disabled]="formGroup.invalid" mat-button><i class="icon-search"></i> Buscar</button>
+    <button class="flex-shrink-0 align-self-center" [disabled]="formGroup.invalid" mat-button><i class="icon-search"></i> Buscar</button>
   </form>
-  <p *ngIf="formGroup.invalid && formGroup.touched"  class="message">Você precisa preencher um CEP válido antes de realizar a busca.</p>
+  <p *ngIf="formGroup.invalid && formGroup.touched" class="message mt-2">Você precisa preencher um CEP válido antes de realizar a busca.</p>
 </div>
-<hr>
+<hr class="mt-4 mt-sm-0">

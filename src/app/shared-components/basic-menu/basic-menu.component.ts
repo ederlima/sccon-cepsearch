@@ -1,5 +1,5 @@
 import { BasicMenuItemComponent } from './basic-menu-item/basic-menu-item.component';
-import { BasicLink } from './../../interfaces/basic-link';
+import { BasicLink } from './../interfaces/basic-link';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

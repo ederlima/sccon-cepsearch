@@ -1,9 +1,50 @@
+@import '../../../../../assets/css/theme-base';
 :host {
   width:100%;
 }
 .cep-search-form {
+
   mat-form-field {
     width:100%;
     flex-shrink: 1;
+
   }
+  button {
+    align-self: center!important;
+    margin-bottom:1.34375em;
+    background:$foreground;
+    margin-left:15px;
+    height:100%;
+    transition: linear .15s;
+    min-width:200px;
+    &:not(:disabled):hover {
+      transform: scale(1.05);
+      transition: linear .15s;
+    }
+  }
+  button.theme {
+    background: $theme;
+    color:$white;
+    &:disabled {
+      opacity: .5;
+    }
+  }
+  .message {
+    color:$theme;
+  }
+}
+@media screen and (max-width:576px) {
+  .cep-search-form {
+    flex-direction: column!important;
+    button {
+      margin: 0 auto;
+      width:85%;
+    }
+    .message {
+      margin: 10px auto 0 auto;
+      width:85%;
+      text-align: center;
+    }
+  }
+
 }
